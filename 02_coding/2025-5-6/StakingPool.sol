@@ -58,8 +58,18 @@ contract StakingPool{
        uint256 reward = stakes[msg.sender].pendingReward;
        require(reward > 0, "no reward available");
        stakes[msg.sender].pendingReward = 0;
-       bool tx = rewardToken.transfer(msg.sender, reward);
-       require(tx, "TX fail");
+       bool _txReward = rewardToken.transfer(msg.sender, reward);
+       require(_txReward, "TX fail");
        emit RewardClaimed(msg.sender, reward);//
    }
+
+   function _stakeInfo() external view returns (uint256 stakedAmount, uint256 rewardAmount) {
+       StakeInfo storage s = stakes[msg.sender];
+       stakedAmount = s.amount;
+       rewardAmount = s.pendingReward;
+   }
+
+       
+
+   
 }

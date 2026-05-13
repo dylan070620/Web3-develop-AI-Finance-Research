@@ -6,6 +6,135 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_stakingToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_rewardToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rewardRatePerSecond",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardClaimed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Staked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Unstaked",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "_claimReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "_stake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_stakeInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "stakedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewardAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "_unstake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "rewardRatePerSecond",
 				"outputs": [
@@ -26,6 +155,35 @@
 						"internalType": "contract IERC20",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stakes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdateTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pendingReward",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -73,11 +231,11 @@
 	},
 	"sources": {
 		"02_coding/2025-5-6/StakingPool.sol": {
-			"keccak256": "0x28e2764ba774d07409712b48c8651c4cf9194d7c9503a818e03f78f75ac5b42f",
+			"keccak256": "0x2da0311e2838bb7ef9af0705ac423eafe2c4c3d8c7d8dc69f4fb01b597e0e639",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d4b077333c23bc739d473ffe9981052bb185f35c7df88bd9eb19ea0951360c7d",
-				"dweb:/ipfs/QmaW9FyBTLXjDyrYrFyFi2t6DHXeRNaYGhURyvMJs7wa7S"
+				"bzz-raw://eb9a235f20f86b1eaebb88aca8f02ae73c3fbddd7c7d93973baebe5112564aa8",
+				"dweb:/ipfs/QmeNQxepreF9b9FMwHG2BC9JsbDuE3oUyRQ7RyesTKHjfQ"
 			]
 		},
 		"@openzeppelin/contracts@5.0.2/token/ERC20/IERC20.sol": {

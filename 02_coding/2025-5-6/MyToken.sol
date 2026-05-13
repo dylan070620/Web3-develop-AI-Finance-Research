@@ -11,4 +11,8 @@ contract Mytoken is ERC20,Ownable{
     function mint(address to, uint256 amount) external onlyOwner{//only owner can call this mint func
         _mint(to,amount);
     }
+    
+    function _getbalance() external view returns (uint256){
+        return balanceOf(msg.sender);
+    }
 }
